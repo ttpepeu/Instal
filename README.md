@@ -24,3 +24,11 @@ foreach ($app in $apps) {
     Write-Output "Instalando $($app.Name)..."
     winget install --id $($app.ID) --silent --accept-package-agreements --accept-source-agreements
 }
+
+
+
+iwr "https://raw.githubusercontent.com/seu-usuario/repositorio/main/scripts/instalar_apps.ps1" -OutFile "$env:TEMP\run.ps1"; powershell -ExecutionPolicy Bypass -File "$env:TEMP\run.ps1"
+
+
+Invoke-WebRequest "https://raw.githubusercontent.com/seu-usuario/repositorio/main/scripts/instalar_apps.ps1" -OutFile "$env:TEMP\instalar_apps.ps1"
+powershell -ExecutionPolicy Bypass -File "$env:TEMP\instalar_apps.ps1"
